@@ -8,12 +8,16 @@ $(DIST): clean
 	mkdir $@
 	@make $(DIST)/index.html
 	@make $(DIST)/index.js
+	@make $(DIST)/index.css
 
 $(DIST)/index.html:
 	cp $(SRC)/index.html $@
 
 $(DIST)/index.js:
-	$(BIN)/browserify -t babelify $(SRC)/index.js -o $@
+	$(BIN)/browserify $(SRC)/index.js -o $@
+
+$(DIST)/index.css:
+	cp $(SRC)/index.css $@
 
 # Phonies
 
@@ -24,3 +28,6 @@ all: $(DIST)
 
 clean:
 	@rm -rf $(DIST)
+
+lint:
+	$(BIN)/xo src/*.js --env=node --env=browser --plugin=react

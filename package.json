@@ -4,16 +4,27 @@
   "description": "A ToDo app focusing on what you can do right now.",
   "main": "index.js",
   "scripts": {
-    "build": "make all"
+    "build": "make all",
+    "lint": "make lint",
+    "start": "make start"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babelify": "^6.4.0",
     "browserify": "^12.0.0",
+    "classnames": "^2.2.0",
+    "eslint-plugin-react": "^3.6.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "watchify": "^3.6.0",
+    "xo": "^0.10.1"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }
